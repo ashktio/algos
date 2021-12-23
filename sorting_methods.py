@@ -30,3 +30,8 @@ def insertionSort(arr):
     print ("%d" %arr[i])
   return arr
 print("printed with insertion sort", insertionSort(arr))
+
+
+
+
+
