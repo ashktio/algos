@@ -176,6 +176,45 @@ class LinkedList:
             runner = runner.next
         return val.data
 
+    def prependVal(self, val, before):
+        if self.head is None:
+            new_node = Node(val)
+            self.head = new_node
+            return 
+        
+        runner = self.head
+
+        p = None
+        while runner.next is not None:
+            if runner.next.data == before:
+                p = runner
+                new_node = Node(val)
+                new_node.next = p.next
+                p.next = new_node
+                return 
+            runner = runner.next
+        return
+
+    def appendVal(self, val, after):
+        if self.head is None:
+            new_node = Node(val)
+            self.head = new_node
+            return 
+        
+        runner = self.head
+
+        p = None
+        while runner.next is not None:
+            if runner.next.data == after:
+                p = runner.next
+                new_node = Node(val)
+                new_node.next = p.next
+                p.next = new_node
+                return f"successfully added {val} after {after} in the list"
+            runner = runner.next
+        return f"Couldn't find {after} in the list."
+
+
 sll = LinkedList()
 
 print(sll.front())
@@ -196,3 +235,6 @@ sll.back(10)
 sll.removeBack()
 sll.litstItems()
 print(sll.backVal())
+sll.prependVal(10, 4)
+print(sll.appendVal(35, 9))
+sll.litstItems()
